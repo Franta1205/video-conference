@@ -13,5 +13,8 @@ func SetUpRoutes(router *gin.Engine) {
 	callGroup := router.Group("/call")
 	{
 		callGroup.POST("/start", callController.StartCall)
+		callGroup.POST("/join", callController.JoinCall)
+		callGroup.POST("/end", callController.EndCall)
+		callGroup.GET("/page", callController.CallPage)
 	}
 }
