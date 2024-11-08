@@ -9,6 +9,9 @@ func SetUpRoutes(router *gin.Engine) {
 	homeController := controllers.NewHomeController()
 	router.GET("/", homeController.Index)
 
+	websocketController := controllers.NewWebsocketsController()
+	router.GET("/ws", websocketController.HandleWebsocket)
+
 	callController := controllers.NewCallController()
 	callGroup := router.Group("/call")
 	{
